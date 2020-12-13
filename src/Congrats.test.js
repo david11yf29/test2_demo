@@ -29,3 +29,7 @@ test('renders non-empty congrats message when success prop is true', () => {
   expect(messege.text().length).not.toBe(0);
 });
 
+test('does not throw warning with expected props', () => {
+  
+});
+
