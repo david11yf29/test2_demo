@@ -25,7 +25,7 @@ test('renders no text when `success` prop is false', () => {
 
 test('renders non-empty congrats message when success prop is true', () => {
   const wrapper = setup({ success: true });
-  const messgae = findByTestAttr(wrapper, 'component-message');
-  expect(messgae.text().length).not.toBe(0);
+  const messege = findByTestAttr(wrapper, 'congrats-message');
+  expect(messege.text().length).not.toBe(0);
 });
 
