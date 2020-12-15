@@ -14,4 +14,4 @@ const setup = (props={}) => {
 
 test('does not throw warning with expected props', () => {
   checkProps(GuessedWords, defaultProps);
-})
+});
