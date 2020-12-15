@@ -9,5 +9,5 @@ Enzyme.configure({ adapter: new Adapter() });
 test('renders without crashing', () => {
   const wrapper = shallow(<App />);
   console.log(wrapper.debug());
-  expect(wrapper).toBeFalsy();
+  expect(wrapper).toBeTruthy();
 });
