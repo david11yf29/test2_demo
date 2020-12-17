@@ -4,10 +4,12 @@ import { shallow } from 'enzyme';
 import { findByTestAttr, storeFactory } from '../test/testUtils';
 import Input from './input';
 
+// createstore 後的 store 要用 prop 傳進去無法用 provider 來傳
 const setup = (initialState={}) => {
   const store = storeFactory(initialState);
-  const wrapper = shallow(<Input store={store} />);
+  const wrapper = shallow(<Input store={store} />).dive().dive();
   console.log(wrapper.debug());
+  return wrapper;
 }
 
 setup();
