@@ -1,10 +1,16 @@
 import { storeFactory } from '../test/testUtils';
 import { guessWord } from './actions/index';
 
+// export default combineReducers({
+//   success: success, false
+//   guessedWords: guessedWords, []
+//   secretWord: secretWord, 'party'
+// })
+
 describe('guessWord action dispatcher', () => {
   const secretWord = 'party';
   const unsuccessfulGuess = 'train';
-  describe('no guess words', () => {
+  describe('no initial guess words', () => {
     let store;
     const initialState = { secretWord: secretWord }
     beforeEach(() => {
@@ -37,7 +43,7 @@ describe('guessWord action dispatcher', () => {
       expect(newState).toEqual(expectedState);
     });
   });
-  describe('some guess words', () => {
+  describe('with already some guess words', () => {
     const guessedWords = [ { guessedWord: 'agile', letterMatchCount: 1 } ];
     const initialState = { guessedWords: guessedWords, secretWord: secretWord };
     let store;
