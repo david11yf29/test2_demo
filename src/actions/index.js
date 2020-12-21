@@ -29,6 +29,8 @@ export const guessWord = (guessedWord) => {
   }
 } 
 
-export getSecretWord = () => {
-  
+export const getSecretWord = () => {
+  return (dispatch) => {
+    axios.get('http://localhost:3030');
+  }
 }
