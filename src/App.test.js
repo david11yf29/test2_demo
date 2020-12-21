@@ -1,13 +1,15 @@
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import { shallow } from 'enzyme';
 
+import { storeFactory } from '../test/testUtils';
 import App from './App';
 
-Enzyme.configure({ adapter: new Adapter() });
+const setup = (state = {}) => {
+  const store = storeFactory(state);
+  const wrapper = shallow(<App store={store} />).dive().dive();
+  return wrapper;
+};
 
-test('renders without crashing', () => {
-  const wrapper = shallow(<App />);
-  // console.log(wrapper.debug());
-  expect(wrapper).toBeTruthy();
-});
+describe('redux properties', () => {
+  
+})
