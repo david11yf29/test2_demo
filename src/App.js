@@ -7,7 +7,10 @@ import Congrats from './Congrats';
 import Input from './input';
 import { getSecretWord } from './actions/index';
 
-class App extends React.Component {
+export class UnconnectApp extends React.Component {
+  componentDidMount() {
+    this.props.getSecretWord();
+  }
   render() {
     return (
       <div className="container">
@@ -27,4 +30,4 @@ const mapStateToProps = (state) => {
   };
 }
 
-export default connect(mapStateToProps, { getSecretWord: getSecretWord })(App);
+export default connect(mapStateToProps, { getSecretWord: getSecretWord })(UnconnectApp);
