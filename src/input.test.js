@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import { findByTestAttr, storeFactory } from '../test/testUtils';
-import Input from './input';
+import Input, { UnconnectedInput } from './input';
 
 // createstore 後的 store 要用 prop 傳進去無法用 provider 來傳
 const setup = (initialState={}) => {
@@ -68,3 +68,21 @@ describe('redux props', () => {
     expect(guessWordProp).toBeInstanceOf(Function);
   })
 });
+
+describe('`guessWord` action creator call', () => {
+  test('calls `guessWord` when button is clicked', () => {
+    const guessWordMock = jest.fn();
+
+    const props = {
+      guessWord: guessWordMock
+    };
+
+    const wrapper = shallow(<UnconnectedInput {...props} />);
+
+    const submitButton = findByTestAttr(wrapper, 'submit-button');
+    submitButton.simulate('click');
+
+    const guessWordCallCount = guessWordMock.mock.calls.length;
+    expect(guessWordCallCount).toBe(1);
+  })
+})
