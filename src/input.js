@@ -7,7 +7,7 @@ export class UnconnectedInput extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentGuess: null
+      currentGuess: ""
     }
   }
 
